@@ -8,7 +8,7 @@ namespace UserLogin
 {
     public class LoginValidation
     {
-        public delegate void ActionOnError(string errorMessage);
+        public delegate void ActionOnError(string errorMessage, int errorCode);
 
         private string username;
         private string password;
@@ -31,7 +31,7 @@ namespace UserLogin
             if(string.IsNullOrEmpty(username))
             {
                 errorMessage = "Не е посочено потребителско име.";
-                action(errorMessage);
+                action(errorMessage, 10010);
                 user = new User();
                 return false;
             }
@@ -39,7 +39,7 @@ namespace UserLogin
             if (username.Length < 5)
             {
                 errorMessage = "Потребителското име трябва да е поне 5 символа.";
-                action(errorMessage);
+                action(errorMessage, 10011);
                 user = new User();
                 return false;
             }
@@ -47,7 +47,7 @@ namespace UserLogin
             if (string.IsNullOrEmpty(password))
             {
                 errorMessage = "Не е посочена парола.";
-                action(errorMessage);
+                action(errorMessage, 10012);
                 user = new User();
                 return false;
             }
@@ -55,7 +55,7 @@ namespace UserLogin
             if (password.Length < 5)
             {
                 errorMessage = "Потребителската парола трябва да е поне 5 символа.";
-                action(errorMessage);
+                action(errorMessage, 10013);
                 user = new User();
                 return false;
             }
@@ -72,7 +72,7 @@ namespace UserLogin
             CurrentUsername = "";
             CurrentUserRole = UserRoles.ANONYMOUS;
             errorMessage = "Невалидно потребителско име или парола.";
-            action(errorMessage);
+            action(errorMessage, 10014);
             return false;
         }
     }

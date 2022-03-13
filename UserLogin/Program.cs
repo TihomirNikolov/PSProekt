@@ -58,8 +58,9 @@ namespace UserLogin
             }
         }
 
-        public static void Message(string message)
+        public static void Message(string message, int errorCode)
         {
+            Logger.LogError(message, errorCode); 
             Console.WriteLine("!!! " + message + " !!!");
         }
 

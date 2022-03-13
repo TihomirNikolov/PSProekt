@@ -25,6 +25,16 @@ namespace UserLogin
             File.Copy("LogFile.txt", Path.GetFullPath(@"..\..\..\LogFile.txt"));
         }
 
+        public static void LogError(string errorMessage, int errorCode)
+        {
+            string activityLine = "************************************************\n"
+                + DateTime.Now + "\n"
+                + "Код на грешка: " + errorCode + " - " + errorMessage
+                + "\n************************************************\n\n";
+
+            File.AppendAllText("LogErrorFile.txt", activityLine);
+        }
+
         public static string GetCurrentSessionActivities()
         {
             StringBuilder sessionActivities = new StringBuilder();

@@ -77,7 +77,7 @@ namespace UserLogin
                 {
                     user.DateActiveTo = dateActiveTo;
                     Console.Write("Датата променена на " + dateActiveTo.ToShortDateString());
-                    Logger.LogActivity("Промяна на роля на " + username);
+                    Logger.LogActivity("Промяна на активност на " + username);
                 }
             }
         }
@@ -90,7 +90,7 @@ namespace UserLogin
                 {
                     user.UserRole = userRole;
                     Console.Write("Ролята променена на " + userRole);
-                    Logger.LogActivity("Промяна на активност на " + username);
+                    Logger.LogActivity("Промяна на роля на " + username);
                 }
             }
         }
