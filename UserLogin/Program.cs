@@ -60,7 +60,7 @@ namespace UserLogin
 
         public static void Message(string message, int errorCode)
         {
-            Logger.LogError(message, errorCode); 
+            Logger.LogError(message, errorCode);
             Console.WriteLine("!!! " + message + " !!!");
         }
 
@@ -95,7 +95,18 @@ namespace UserLogin
                     ReadLogFile();
                     break;
                 case 5:
-                    Console.WriteLine(Logger.GetCurrentSessionActivities());
+                    Console.WriteLine("Филтрирайте по:");
+
+                    string filter = Console.ReadLine();
+
+                    StringBuilder sessionActivities = new StringBuilder();
+
+                    foreach (var currentSession in Logger.GetCurrentSessionActivities(filter))
+                    {
+                        sessionActivities.Append(currentSession);
+                    }
+
+                    Console.WriteLine(sessionActivities.ToString());
                     break;
                 default:
                     Console.WriteLine("Невалидна операция");
@@ -112,9 +123,9 @@ namespace UserLogin
                 Console.WriteLine("Въведете роля(цяло число 0-4): ");
                 UserRoles userRole = (UserRoles)int.Parse(Console.ReadLine());
 
-                UserData.AssignUserRole(username,userRole);
+                UserData.AssignUserRole(username, userRole);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -132,7 +143,7 @@ namespace UserLogin
 
                 UserData.SetUserActiveTo(username, activeToDate);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -140,7 +151,7 @@ namespace UserLogin
 
         public static void ShowUsers()
         {
-            foreach(var user in UserData.TestUsers)
+            foreach (var user in UserData.TestUsers)
             {
                 Console.Write(user.Username + " " +
                               user.UserRole + " " +
@@ -159,7 +170,7 @@ namespace UserLogin
                     Console.WriteLine(sr.ReadToEnd());
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }

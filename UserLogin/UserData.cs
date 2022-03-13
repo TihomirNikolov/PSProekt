@@ -56,24 +56,15 @@ namespace UserLogin
         }
 
         public static User IsUserPassCorrect(string username, string password)
-        { 
+        {
             return TestUsers.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
-
-            /*foreach(var user in TestUsers)
-            {
-                if(user.Username == username && user.Password == password)
-                {
-                    return user;
-                }
-            }
-            return null;*/
         }
 
         public static void SetUserActiveTo(string username, DateTime dateActiveTo)
         {
-            foreach(var user in TestUsers)
+            foreach (var user in TestUsers)
             {
-                if(user.Username == username)
+                if (user.Username == username)
                 {
                     user.DateActiveTo = dateActiveTo;
                     Console.Write("Датата променена на " + dateActiveTo.ToShortDateString());

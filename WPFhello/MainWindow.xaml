@@ -1,0 +1,43 @@
+﻿<Window x:Class="WPFhello.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFhello"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Closing="Window_Closing">
+    <Grid x:Name="MainGrid">
+        <TextBlock HorizontalAlignment="Left" Margin="362,51,0,0" TextWrapping="Wrap" Text="Hello,  WPF!" VerticalAlignment="Top"/>
+        <Button x:Name="btnHello" Content="Здрасти!" HorizontalAlignment="Left" Margin="148,179,0,0" VerticalAlignment="Top" Width="75" Click="btnHello_Click"/>
+        <GroupBox x:Name="gbUser" Header="enter data" HorizontalAlignment="Left" Height="190" Margin="10,19,0,0" VerticalAlignment="Top" Width="246"/>
+        <TextBox x:Name="txtName" HorizontalAlignment="Left" Height="23" Margin="126,67,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="lblName" Content="Label" HorizontalAlignment="Left" Margin="67,67,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="factorial_butt" Content="factorial" HorizontalAlignment="Left" Margin="526,95,0,0" VerticalAlignment="Top" Width="75" Click="factorial_butt_Click"/>
+        <Button x:Name="pow_butt" Content="pow" HorizontalAlignment="Left" Margin="687,95,0,0" VerticalAlignment="Top" Width="75" Click="pow_butt_Click"/>
+        <TextBox x:Name="factorial_txtbox" HorizontalAlignment="Left" Height="23" Margin="526,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="pow_txtbox" HorizontalAlignment="Left" Height="23" Margin="652,37,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtName1" HorizontalAlignment="Left" Height="23" Margin="126,95,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtName2" HorizontalAlignment="Left" Height="23" Margin="126,123,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txtName3" HorizontalAlignment="Left" Height="23" Margin="126,151,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="my_test_text_block" HorizontalAlignment="Left" Background ="Bisque" TextWrapping="Wrap" Text="Test" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <TextBlock.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform X="400" Y="100"/>
+                </TransformGroup>
+            </TextBlock.RenderTransform>
+        </TextBlock>
+
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black"> 
+            I edit XAML myself!
+        </TextBlock>
+        <Button x:Name="Bot_butt" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="100" Click="Bot_butt_Click">
+            Click me!
+        </Button>
+
+
+    </Grid>
+</Window>

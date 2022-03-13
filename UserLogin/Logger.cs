@@ -35,16 +35,14 @@ namespace UserLogin
             File.AppendAllText("LogErrorFile.txt", activityLine);
         }
 
-        public static string GetCurrentSessionActivities()
+        public static IEnumerable<string> GetCurrentSessionActivities()
         {
-            StringBuilder sessionActivities = new StringBuilder();
+            return currentSessionActivities;
+        }
 
-            foreach (var currentSession in currentSessionActivities)
-            {
-                sessionActivities.Append(currentSession);
-            }
-
-            return sessionActivities.ToString();
+        public static IEnumerable<string> GetCurrentSessionActivities(string filter)
+        {
+            return currentSessionActivities.Where(a => a.Contains(filter));
         }
     }
 }

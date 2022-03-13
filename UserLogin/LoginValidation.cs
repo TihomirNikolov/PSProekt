@@ -28,7 +28,7 @@ namespace UserLogin
 
         public bool ValidateUserInput(out User user)
         {
-            if(string.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(username))
             {
                 errorMessage = "Не е посочено потребителско име.";
                 action(errorMessage, 10010);
@@ -61,7 +61,7 @@ namespace UserLogin
             }
 
             user = UserData.IsUserPassCorrect(username, password);
-            if(user != null)
+            if (user != null)
             {
                 CurrentUsername = user.Username;
                 CurrentUserRole = user.UserRole;
