@@ -7,17 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="no image found.png" />
+    <None Remove="watermark.png" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="no image found.png">
+    <Resource Include="watermark.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\UserLogin\UserLogin.csproj" />
   </ItemGroup>
 
 </Project>

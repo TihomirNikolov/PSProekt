@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UserLogin;
 
 namespace StudentInfoSystem
 {
@@ -24,33 +25,107 @@ namespace StudentInfoSystem
         {
             InitializeComponent();
         }
-        private Student _Teststud;
+
+        int index = 0;
+
+        private List<Student> testStudents;
+        public List<Student> TestStudents
+        {
+            get
+            {
+                if (testStudents == null)
+                {
+                    testStudents = new List<Student>()
+                    {
+                        new Student()
+                        {
+                            firstName = "Petar",
+                            secondName = "Petrov",
+                            lastName = "Petrvo",
+                            faculty = "FKST",
+                            speciality = "KSI",
+                            degree = "bachelor",
+                            status = (int)Student_status.GRADUATED,
+                            facultyNum = "111111112",
+                            course = 5,
+                            flow = 1,
+                            group = 30,
+                        },
+                        new Student()
+                        {
+                            firstName = "Georgi",
+                            secondName = "Gerogiev",
+                            lastName = "Georgiev",
+                            faculty = "FKST",
+                            speciality = "KSI",
+                            degree = "bachelor",
+                            status = (int)Student_status.GRADUATED,
+                            facultyNum = "111111113",
+                            course = 5,
+                            flow = 1,
+                            group = 30,
+                        },
+                        new Student()
+                        {
+                            firstName = "Alexander",
+                            secondName = "Alexandrov",
+                            lastName = "Alexandrov",
+                            faculty = "FKST",
+                            speciality = "KSI",
+                            degree = "bachelor",
+                            status = (int)Student_status.GRADUATED,
+                            facultyNum = "111111114",
+                            course = 5,
+                            flow = 1,
+                            group = 30,
+                        },
+                        new Student()
+                        {
+                            firstName = "Ivan",
+                            secondName = "Ivanov",
+                            lastName = "Ivanov",
+                            faculty = "FKST",
+                            speciality = "KSI",
+                            degree = "bachelor",
+                            status = (int)Student_status.GRADUATED,
+                            facultyNum = "111111115",
+                            course = 5,
+                            flow = 1,
+                            group = 30,
+                        }
+                    };
+                }
+                return testStudents;
+            }
+        }
+
+        private Student teststud;
         public Student Teststud
         {
             get
             {
-                return _Teststud;
+                return teststud;
             }
             set
             {
-                student_validity_check(value);
+                Student_Validity_Check(value);
             }
         }
-        private void student_validity_check(Student st)
+        private void Student_Validity_Check(Student st)
         {
             if (st == null)
             {
-                clear_controls();
-                deactivate_all_control();
+                Clear_Controls();
+                DeactivateAllControl();
             }
             else
             {
-                activate_all_control();
-                fill_with_student(st);
-                _Teststud = st;
+                ActivateAllControl();
+                Fill_With_Student(st);
+                teststud = st;
             }
         }
-        public void clear_controls()
+        public void Clear_Controls()
         {
             foreach (var item in MainGrid.Children)
             {
@@ -60,21 +135,21 @@ namespace StudentInfoSystem
                 }
             }
         }
-        public void fill_with_student(Student st)
+        public void Fill_With_Student(Student st)
         {
-            name_txtbox.Text = st.first_name;
-            sec_name_txtbox.Text = st.second_name;
-            last_name_txtbox.Text = st.last_name;
+            name_txtbox.Text = st.firstName;
+            sec_name_txtbox.Text = st.secondName;
+            last_name_txtbox.Text = st.lastName;
             faculty_txtbox.Text = st.faculty;
             spec_txtbox.Text = st.speciality;
             degree_txtbox.Text = st.degree;
             status_txtbox.Text = ((Student_status)st.status).ToString();
-            fac_num_txtbox.Text = st.faculty_num;
+            fac_num_txtbox.Text = st.facultyNum;
             course_txtbox.Text = st.course.ToString();
             flow_txtbox.Text = st.flow.ToString();
             group_txtbox.Text = st.group.ToString();
         }
-        public void deactivate_all_control()
+        public void DeactivateAllControl()
         {
             //MainGrid.IsEnabled = false;
             foreach (var item in MainGrid.Children)
@@ -85,7 +160,7 @@ namespace StudentInfoSystem
                 }
             }
         }
-        public void activate_all_control()
+        public void ActivateAllControl()
         {
             //MainGrid.IsEnabled = true;
             foreach (var item in MainGrid.Children)
@@ -97,43 +172,55 @@ namespace StudentInfoSystem
             }
         }
 
-        private void clear_all_butt_Click(object sender, RoutedEventArgs e)
+        private void ClearAllButt_Click(object sender, RoutedEventArgs e)
         {
-            clear_controls();
+            Clear_Controls();
         }
 
-        private void send_student_butt_Click(object sender, RoutedEventArgs e)
+        private void SendStudentButt_Click(object sender, RoutedEventArgs e)
         {
             Student st = new Student();
-            st.first_name = "new";
-            st.second_name = "second";
-            st.last_name = "latest";
+            st.firstName = "asdf";
+            st.secondName = "qwer";
+            st.lastName = "zxcv";
             st.faculty = "FKST";
             st.speciality = "KSI";
-            st.degree = "bache";
+            st.degree = "bachelor";
             st.status = (int)Student_status.GRADUATED;
-            st.faculty_num = "121218027";
-            st.course = 3;
-            st.flow = 3;
-            st.group = 49;
+            st.facultyNum = "111111111";
+            st.course = 5;
+            st.flow = 1;
+            st.group = 30;
             //fill_with_student(st);
             Teststud = st;
         }
 
-        private void deactivate_butt_Click(object sender, RoutedEventArgs e)
+        private void DeactivateButt_Click(object sender, RoutedEventArgs e)
         {
-            deactivate_all_control();
+            DeactivateAllControl();
         }
 
-        private void activate_butt_Click(object sender, RoutedEventArgs e)
+        private void ActivateButt_Click(object sender, RoutedEventArgs e)
         {
-            activate_all_control();
+            ActivateAllControl();
         }
 
-        private void _TestStud_butt_Click(object sender, RoutedEventArgs e)
+        private void TestStudButt_Click(object sender, RoutedEventArgs e)
         {
             Student st = null;
             Teststud = st;
+        }
+
+        private void ShowTestUser_Click(object sender, RoutedEventArgs e)
+        {
+            MessageLbl.Content = "Program is in test mode";
+
+            if(index > TestStudents.Count - 1)
+            {
+                index = 0;
+            }
+            Fill_With_Student(TestStudents[index]);
+            index++;
         }
     }
 }

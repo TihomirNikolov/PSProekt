@@ -8,33 +8,33 @@ namespace StudentInfoSystem
 {
     class StudentData
     {
-        private static List<Student> _testStudents;
+        private static List<Student> testStudents;
         public static List<Student> TestStudents
         {
             get
             {
                 Reset_test_student_data();
-                return _testStudents;
+                return testStudents;
             }
             set { }
         }
         private static void Reset_test_student_data()
         {
-            if (_testStudents == null)
+            if (testStudents == null)
             {
-                _testStudents = new List<Student>();
-                _testStudents.Add(new Student());
-                _testStudents[0].first_name = "Koleda";
-                _testStudents[0].second_name = "hah";
-                _testStudents[0].last_name = "new";
-                _testStudents[0].faculty = "FKST";
-                _testStudents[0].speciality = "KSI";
-                _testStudents[0].degree = "bachelor";
-                _testStudents[0].status = (int)Student_status.GRADUATED;
-                _testStudents[0].faculty_num = "121218027";
-                _testStudents[0].course = 3;
-                _testStudents[0].flow = 1;
-                _testStudents[0].group = 49;
+                testStudents = new List<Student>();
+                testStudents.Add(new Student());
+                testStudents[0].firstName = "asdf";
+                testStudents[0].secondName = "qwer";
+                testStudents[0].lastName = "zxcv";
+                testStudents[0].faculty = "FKST";
+                testStudents[0].speciality = "KSI";
+                testStudents[0].degree = "bachelor";
+                testStudents[0].status = (int)Student_status.GRADUATED;
+                testStudents[0].facultyNum = "1111111111";
+                testStudents[0].course = 5;
+                testStudents[0].flow = 1;
+                testStudents[0].group = 30;
 
             }
         }
