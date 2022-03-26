@@ -33,11 +33,15 @@
 
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Arial Black"> 
             I edit XAML myself!
-        </TextBlock>
-        <Button x:Name="Bot_butt" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="100" Click="Bot_butt_Click">
+        </TextBlock>        <Button x:Name="Bot_butt" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Height="100" Click="Bot_butt_Click">
             Click me!
         </Button>
-
-
+        <ListBox x:Name="peopleListBox" HorizontalAlignment="Left" Height="100" Margin="546,179,0,0" VerticalAlignment="Top" Width="100">
+            <ListBoxItem Content="Mike"/>
+            <ListBoxItem Content="Lisa"/>
+            <ListBoxItem Content="Jonh"/>
+            <ListBoxItem Content="Mary"/>
+        </ListBox>
+        <Button x:Name="greet_btn" Content="Greeting!" HorizontalAlignment="Left" Margin="559,284,0,0" VerticalAlignment="Top" Width="75" Click="greet_btn_Click"/>
     </Grid>
 </Window>
