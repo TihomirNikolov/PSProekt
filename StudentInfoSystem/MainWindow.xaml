@@ -83,14 +83,15 @@
             Click="ClearAllButt_Click"
             Content="ClearAll" />
         <Button
-            x:Name="send_student_butt"
+            x:Name="Login_Button"
             Grid.Column="1"
             Width="75"
             Margin="141,346,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
-            Click="SendStudentButt_Click"
-            Content="Fill" />
+            Click="Login_Button_Click"
+            Content="Login" />
+        <!--<Button Width="75" x:Name="Login_Button" Content="Login" Margin="376,274,58,210" Grid.Column="1" Click="Login_Button_Click"/>-->
         <Button
             x:Name="deactivate_butt"
             Grid.Column="1"

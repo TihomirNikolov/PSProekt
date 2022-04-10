@@ -21,9 +21,15 @@ namespace StudentInfoSystem
     /// </summary>
     public partial class MainWindow : Window
     {
+        public User User { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public MainWindow(User user) : base()
+        {
+            User = user;
         }
 
         int index = 0;
@@ -215,12 +221,32 @@ namespace StudentInfoSystem
         {
             MessageLbl.Content = "Program is in test mode";
 
-            if(index > TestStudents.Count - 1)
+            if (index > TestStudents.Count - 1)
             {
                 index = 0;
             }
             Fill_With_Student(TestStudents[index]);
             index++;
+        }
+
+        public void OnLogin(User user)
+        {
+            var stud = TestStudents.Where(t => t.facultyNum == user.FacultyNumber).FirstOrDefault();
+            if (stud != null)
+            {
+                Fill_With_Student(stud);
+            }
+        }
+
+        private void Login_Button_Click(object sender, RoutedEventArgs e)
+        {
+            clear_all_butt.Visibility = Visibility.Hidden;
+            deactivate_butt.Visibility = Visibility.Hidden;
+            activate_butt.Visibility = Visibility.Hidden;
+            showTestUser.Visibility = Visibility.Hidden;
+
+            LoginWindow loginWindow = new LoginWindow(OnLogin);
+            loginWindow.Show();
         }
     }
 }

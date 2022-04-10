@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,12 +19,24 @@ namespace Expenselt
     /// <summary>
     /// Interaction logic for ExpenseItHome.xaml
     /// </summary>
-    public partial class ExpenseItHome : Window
+    public partial class ExpenseItHome : Window, INotifyPropertyChanged
     {
         public string MainCaptionText { get; set; }
         public List<Person> ExpenseDataSource { get; set; }
+        public ObservableCollection<string> PersonsChecked
+        { get; set; }
 
-        public DateTime LastChecked { get; set; }
+        private DateTime lastChecked;
+        public DateTime LastChecked
+        {
+            get => lastChecked;
+            set
+            {
+                lastChecked = value;
+                if (PropertyChanged != null)
+                    PropertyChanged(this, new PropertyChangedEventArgs("LastChecked"));
+            }
+        }
         public ExpenseItHome()
         {
             InitializeComponent();
@@ -99,6 +113,16 @@ namespace Expenselt
             };
             LastChecked = DateTime.Now;
             this.DataContext = this;
+
+            PersonsChecked = new ObservableCollection<string>();
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void peopleListBox_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        {
+            LastChecked = DateTime.Now;
+            PersonsChecked.Add((peopleListBox.SelectedItem as Person).Name);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
