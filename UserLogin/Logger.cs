@@ -13,12 +13,20 @@ namespace UserLogin
 
         public static void LogActivity(string activity)
         {
+            UserContext context = new UserContext();
             string activityLine = "************************************************\n" +
                 DateTime.Now + "\n"
                 + LoginValidation.CurrentUsername + "\n"
                 + LoginValidation.CurrentUserRole + "\n"
                 + activity + "\n************************************************\n";
             currentSessionActivities.Add(activityLine);
+
+            Log log = new Log();
+
+            log.LogString = activityLine;
+
+            context.Logs.Add(log);
+            context.SaveChanges();
 
             File.AppendAllText("LogFile.txt", activityLine);
             File.Delete(Path.GetFullPath(@"..\..\..\LogFile.txt"));

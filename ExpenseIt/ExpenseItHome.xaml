@@ -22,7 +22,7 @@
             <RowDefinition Height="2*" />
             <RowDefinition Height="0.5*" />
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="1" ItemsSource="{Binding Path=PersonsChecked}"/>
+        <ListBox Grid.Row="1" ItemsSource="{Binding Path=PersonsChecked}" />
         <Grid
             x:Name="GridHeight"
             Grid.Row="1"

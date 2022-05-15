@@ -33,8 +33,14 @@
             Grid.ColumnSpan="2"
             HorizontalAlignment="Right"
             Orientation="Horizontal">
-            <Button Content="Add" Command="{Binding AddCommand}" CommandParameter="{Binding .}"/>
-            <Button Content="Remove" Command="{Binding RemoveCommand}" CommandParameter="{Binding .}" />
+            <Button
+                Command="{Binding AddCommand}"
+                CommandParameter="{Binding .}"
+                Content="Add" />
+            <Button
+                Command="{Binding RemoveCommand}"
+                CommandParameter="{Binding .}"
+                Content="Remove" />
         </StackPanel>
 
         <Label Grid.Row="3" Content="Names" />

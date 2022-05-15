@@ -12,65 +12,267 @@
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
-            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto" />
         </Grid.ColumnDefinitions>
 
-        <GroupBox Header="Снимка" VerticalAlignment="Center" Width="200" Grid.Column="0">
-            <Image Source="no image found.png"   />
+        <GroupBox
+            Grid.Column="0"
+            Width="200"
+            VerticalAlignment="Center"
+            Header="Снимка">
+            <Image Source="no image found.png" />
         </GroupBox>
-        <GroupBox Header="Лични Данни" HorizontalAlignment="Left" Height="120" Width="473" Margin="10,15,0,0" VerticalAlignment="Top"  Grid.Column="1">
+        <GroupBox
+            Grid.Column="1"
+            Width="473"
+            Height="120"
+            Margin="10,15,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Header="Лични Данни">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Име:" VerticalAlignment="Top" Width="120"  Grid.Column="0" Grid.Row="0"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Презиме:" VerticalAlignment="Top" Width="120"  Grid.Column="0" Grid.Row="1"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Фамилия" VerticalAlignment="Top" Width="120"  Grid.Column="0" Grid.Row="2"/>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Име:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Презиме:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Фамилия"
+                    TextWrapping="Wrap" />
 
-                <TextBox x:Name="name_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304" Grid.Column="1" Grid.Row="0"/>
-                <TextBox x:Name="sec_name_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304" Grid.Column="1" Grid.Row="1"/>
-                <TextBox x:Name="last_name_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="304" Grid.Column="1" Grid.Row="2"/>
+                <TextBox
+                    x:Name="name_txtbox"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="304"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="sec_name_txtbox"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="304"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="last_name_txtbox"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="304"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
             </Grid>
         </GroupBox>
 
-        <GroupBox Header="Студентска информация" HorizontalAlignment="Left" Height="171" Width="500" Margin="10,139,0,0" VerticalAlignment="Top" Grid.Column="1" >
+        <GroupBox
+            Grid.Column="1"
+            Width="500"
+            Height="171"
+            Margin="10,139,0,0"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top"
+            Header="Студентска информация">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
+                    <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Факултет" VerticalAlignment="Top" Width="120" Grid.Column="0" Grid.Row="0"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Специалност:" VerticalAlignment="Top" Width="120" Grid.Column="0" Grid.Row="1"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="ОКС:" VerticalAlignment="Top" Width="120" Grid.Column="0" Grid.Row="2"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top" Width="120" Grid.Column="0" Grid.Row="3"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Фак. номер:" VerticalAlignment="Top" Width="120" Grid.Column="0" Grid.Row="4"/>
-                <TextBox x:Name="faculty_txtbox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="0"/>
-                <TextBox x:Name="spec_txtbox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="1"/>
-                <TextBox x:Name="degree_txtbox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="2"/>
-                <TextBox x:Name="status_txtbox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="3"/>
-                <TextBox x:Name="fac_num_txtbox" HorizontalAlignment="Left" Height="23"  TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100" Grid.Column="1" Grid.Row="4"/>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Факултет"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Специалност:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="ОКС:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Статус:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Фак. номер:"
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="faculty_txtbox"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Width="100"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="spec_txtbox"
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Width="100"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="degree_txtbox"
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Width="100"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <ComboBox
+                    x:Name="status_txtbox"
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    ItemsSource="{Binding StudStatusChoices}" />
+                <TextBox
+                    x:Name="fac_num_txtbox"
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Width="100"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
 
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Група:" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="0"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Поток:" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="1"/>
-                <TextBlock HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="Курс:" VerticalAlignment="Top" Width="120" Grid.Column="2" Grid.Row="2"/>
-                <TextBox x:Name="course_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" Grid.Column="3" Grid.Row="0"/>
-                <TextBox x:Name="flow_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" Grid.Column="3" Grid.Row="1"/>
-                <TextBox x:Name="group_txtbox" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="109" Grid.Column="3" Grid.Row="2"/>
+                <TextBlock
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Група:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Поток:"
+                    TextWrapping="Wrap" />
+                <TextBlock
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Width="120"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text="Курс:"
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="course_txtbox"
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Width="109"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="flow_txtbox"
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Width="109"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
+                <TextBox
+                    x:Name="group_txtbox"
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Width="109"
+                    Height="23"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Top"
+                    Text=""
+                    TextWrapping="Wrap" />
             </Grid>
         </GroupBox>
         <Button
@@ -114,18 +316,20 @@
             x:Name="showTestUser"
             Grid.Column="1"
             Width="76"
+            Margin="424,346,0,0"
             HorizontalAlignment="Left"
             VerticalAlignment="Top"
             Click="ShowTestUser_Click"
-            Content="Show Test Data" Margin="424,346,0,0" />
+            Content="Show Test Data" />
         <Label
             x:Name="MessageLbl"
+            Grid.ColumnSpan="2"
             Margin="10,384,53,10"
             HorizontalContentAlignment="Center"
-            FontWeight="Bold"
             VerticalContentAlignment="Center"
             FontSize="50"
-            Foreground="Red" Grid.ColumnSpan="2" />
+            FontWeight="Bold"
+            Foreground="Red" />
 
     </Grid>
 </Window>

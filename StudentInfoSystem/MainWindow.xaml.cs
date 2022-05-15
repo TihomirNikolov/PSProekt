@@ -13,6 +13,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using UserLogin;
+using System.Data;
+using System.Data.SqlClient;
+using Microsoft.EntityFrameworkCore;
 
 namespace StudentInfoSystem
 {
@@ -22,8 +25,15 @@ namespace StudentInfoSystem
     public partial class MainWindow : Window
     {
         public User User { get; set; }
+        public List<string> StudStatusChoices { get; set; }
         public MainWindow()
         {
+            this.DataContext = this;
+
+            if(TestStudentsIfEmpty())
+                CopyTestStudents();
+
+            FillStudStatusChoices();
             InitializeComponent();
         }
 
@@ -45,59 +55,59 @@ namespace StudentInfoSystem
                     {
                         new Student()
                         {
-                            firstName = "Petar",
-                            secondName = "Petrov",
-                            lastName = "Petrvo",
-                            faculty = "FKST",
-                            speciality = "KSI",
-                            degree = "bachelor",
-                            status = (int)Student_status.GRADUATED,
-                            facultyNum = "111111112",
-                            course = 5,
-                            flow = 1,
-                            group = 30,
+                            Name = "Petar",
+                            Surname = "Petrov",
+                            FamilyName = "Petrvo",
+                            //faculty = "FKST",
+                            //speciality = "KSI",
+                            //degree = "bachelor",
+                            //status = (int)Student_status.GRADUATED,
+                            FacultyNumber = "111111111",
+                            //course = 5,
+                            //flow = 1,
+                            //group = 30,
                         },
                         new Student()
                         {
-                            firstName = "Georgi",
-                            secondName = "Gerogiev",
-                            lastName = "Georgiev",
-                            faculty = "FKST",
-                            speciality = "KSI",
-                            degree = "bachelor",
-                            status = (int)Student_status.GRADUATED,
-                            facultyNum = "111111113",
-                            course = 5,
-                            flow = 1,
-                            group = 30,
+                            Name = "Georgi",
+                            Surname = "Gerogiev",
+                            FamilyName = "Georgiev",
+                            //faculty = "FKST",
+                            //speciality = "KSI",
+                            //degree = "bachelor",
+                            //status = (int)Student_status.GRADUATED,
+                            FacultyNumber = "111111113",
+                            //course = 5,
+                            //flow = 1,
+                            //group = 30,
                         },
                         new Student()
                         {
-                            firstName = "Alexander",
-                            secondName = "Alexandrov",
-                            lastName = "Alexandrov",
-                            faculty = "FKST",
-                            speciality = "KSI",
-                            degree = "bachelor",
-                            status = (int)Student_status.GRADUATED,
-                            facultyNum = "111111114",
-                            course = 5,
-                            flow = 1,
-                            group = 30,
+                            Name = "Alexander",
+                            Surname = "Alexandrov",
+                            FamilyName = "Alexandrov",
+                            //faculty = "FKST",
+                            //speciality = "KSI",
+                            //degree = "bachelor",
+                            //status = (int)Student_status.GRADUATED,
+                            FacultyNumber = "111111114",
+                            //course = 5,
+                            //flow = 1,
+                            //group = 30,
                         },
                         new Student()
                         {
-                            firstName = "Ivan",
-                            secondName = "Ivanov",
-                            lastName = "Ivanov",
-                            faculty = "FKST",
-                            speciality = "KSI",
-                            degree = "bachelor",
-                            status = (int)Student_status.GRADUATED,
-                            facultyNum = "111111115",
-                            course = 5,
-                            flow = 1,
-                            group = 30,
+                            Name = "Ivan",
+                            Surname = "Ivanov",
+                            FamilyName = "Ivanov",
+                            //faculty = "FKST",
+                            //speciality = "KSI",
+                            //degree = "bachelor",
+                            //status = (int)Student_status.GRADUATED,
+                            FacultyNumber = "111111115",
+                            //course = 5,
+                            //flow = 1,
+                            //group = 30,
                         }
                     };
                 }
@@ -143,17 +153,17 @@ namespace StudentInfoSystem
         }
         public void Fill_With_Student(Student st)
         {
-            name_txtbox.Text = st.firstName;
-            sec_name_txtbox.Text = st.secondName;
-            last_name_txtbox.Text = st.lastName;
-            faculty_txtbox.Text = st.faculty;
-            spec_txtbox.Text = st.speciality;
-            degree_txtbox.Text = st.degree;
-            status_txtbox.Text = ((Student_status)st.status).ToString();
-            fac_num_txtbox.Text = st.facultyNum;
-            course_txtbox.Text = st.course.ToString();
-            flow_txtbox.Text = st.flow.ToString();
-            group_txtbox.Text = st.group.ToString();
+            name_txtbox.Text = st.Name;
+            //sec_name_txtbox.Text = st.secondName;
+            last_name_txtbox.Text = st.Surname;
+            //faculty_txtbox.Text = st.faculty;
+            //spec_txtbox.Text = st.speciality;
+            //degree_txtbox.Text = st.degree;
+            //status_txtbox.Text = ((Student_status)st.status).ToString();
+            fac_num_txtbox.Text = st.FacultyNumber;
+            //course_txtbox.Text = st.course.ToString();
+            //flow_txtbox.Text = st.flow.ToString();
+            //group_txtbox.Text = st.group.ToString();
         }
         public void DeactivateAllControl()
         {
@@ -185,7 +195,7 @@ namespace StudentInfoSystem
 
         private void SendStudentButt_Click(object sender, RoutedEventArgs e)
         {
-            Student st = new Student();
+            /*Student st = new Student();
             st.firstName = "asdf";
             st.secondName = "qwer";
             st.lastName = "zxcv";
@@ -198,7 +208,7 @@ namespace StudentInfoSystem
             st.flow = 1;
             st.group = 30;
             //fill_with_student(st);
-            Teststud = st;
+            Teststud = st;*/
         }
 
         private void DeactivateButt_Click(object sender, RoutedEventArgs e)
@@ -231,7 +241,7 @@ namespace StudentInfoSystem
 
         public void OnLogin(User user)
         {
-            var stud = TestStudents.Where(t => t.facultyNum == user.FacultyNumber).FirstOrDefault();
+            var stud = TestStudents.Where(t => t.FacultyNumber == user.FacultyNumber).FirstOrDefault();
             if (stud != null)
             {
                 Fill_With_Student(stud);
@@ -247,6 +257,62 @@ namespace StudentInfoSystem
 
             LoginWindow loginWindow = new LoginWindow(OnLogin);
             loginWindow.Show();
+        }
+
+        private void FillStudStatusChoices()
+        {
+            StudStatusChoices = new List<string>();
+
+            using(IDbConnection connection = new SqlConnection(Properties.Settings.Default.DbConnect))
+            {
+                string sqlquery = @"SELECT StatusDescr
+                                    FROM StudStatus";
+
+                IDbCommand command = new SqlCommand();
+                command.Connection = connection;
+                connection.Open();
+
+                command.CommandText = sqlquery;
+                IDataReader reader = command.ExecuteReader();
+
+                bool notEndOfResult;
+
+                notEndOfResult = reader.Read();
+
+                while(notEndOfResult)
+                {
+                    string s = reader.GetString(0);
+
+                    StudStatusChoices.Add(s);
+
+                    notEndOfResult = reader.Read();
+                }
+            }
+        }
+
+        private bool TestStudentsIfEmpty()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+
+            IEnumerable<Student> queryStudents = context.Students;
+
+            int countStudents = queryStudents.Count();
+
+            if (countStudents == 0)
+                return true;
+
+            return false;
+        }
+
+        private void CopyTestStudents()
+        {
+            StudentInfoContext context = new StudentInfoContext();
+
+            foreach(var st in context.Students)
+            {
+                context.Students.Add(st);
+            }
+            context.SaveChanges();
         }
     }
 }

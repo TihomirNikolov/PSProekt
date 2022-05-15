@@ -151,7 +151,8 @@ namespace UserLogin
 
         public static void ShowUsers()
         {
-            foreach (var user in UserData.TestUsers)
+            UserContext context = new UserContext();
+            foreach (var user in context.Users)
             {
                 Console.Write(user.Username + " " +
                               user.UserRole + " " +

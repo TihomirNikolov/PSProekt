@@ -18,13 +18,24 @@ namespace StudentInfoSystem
             }
             set { }
         }
+
+        public static Student IsThereStudent(string facNumber)
+        {
+            StudentInfoContext context = new StudentInfoContext();
+
+            Student result = (from st in context.Students
+                              where st.FacultyNumber == facNumber
+                              select st).First();
+            return result;
+        }
+
         private static void Reset_test_student_data()
         {
             if (testStudents == null)
             {
                 testStudents = new List<Student>();
                 testStudents.Add(new Student());
-                testStudents[0].firstName = "asdf";
+                /*testStudents[0].firstName = "asdf";
                 testStudents[0].secondName = "qwer";
                 testStudents[0].lastName = "zxcv";
                 testStudents[0].faculty = "FKST";
@@ -34,7 +45,7 @@ namespace StudentInfoSystem
                 testStudents[0].facultyNum = "1111111111";
                 testStudents[0].course = 5;
                 testStudents[0].flow = 1;
-                testStudents[0].group = 30;
+                testStudents[0].group = 30;*/
 
             }
         }

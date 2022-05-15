@@ -57,12 +57,15 @@ namespace UserLogin
 
         public static User IsUserPassCorrect(string username, string password)
         {
-            return TestUsers.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
+            UserContext context = new UserContext();
+            return context.Users.Where(u => u.Username == username && u.Password == password).FirstOrDefault();
         }
 
         public static void SetUserActiveTo(string username, DateTime dateActiveTo)
         {
-            foreach (var user in TestUsers)
+            UserContext context = new UserContext();
+
+            foreach (var user in context.Users)
             {
                 if (user.Username == username)
                 {
@@ -75,15 +78,17 @@ namespace UserLogin
 
         public static void AssignUserRole(string username, UserRoles userRole)
         {
-            foreach (var user in TestUsers)
-            {
-                if (user.Username == username)
-                {
-                    user.UserRole = userRole;
-                    Console.Write("Ролята променена на " + userRole);
-                    Logger.LogActivity("Промяна на роля на " + username);
-                }
-            }
+            UserContext context = new UserContext();
+
+            User u = (from user in context.Users
+                      where user.Username == username
+                      select user).First();
+
+            u.UserRole = userRole;
+            context.SaveChanges();
+
+            Console.Write("Ролята променена на " + userRole);
+            Logger.LogActivity("Промяна на роля на " + username);         
         }
     }
 }
